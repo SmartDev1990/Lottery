@@ -1,0 +1,20 @@
+.main {
+  font-family: 'Poppins' !important;
+}
+
+@media screen and (max-width: 1170px) {
+  .content {
+    padding-top: 74px;
+    margin-bottom: 67px !important;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  
+}
+
+@media screen and (max-width: 414px) {
+  .content {
+    margin-bottom: 59px !important;
+  }
+}
