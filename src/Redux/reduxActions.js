@@ -109,7 +109,7 @@ let BscTestnetProvider = new ethers.providers.JsonRpcProvider(
 // let nftLottoAddress = "0xB9F28B2C4C32C2e38a5F8559Abd4920D8D9Bf3C4"; //lotto on MAINNET
 // let stakingAddress = "0xaebDD6cBd68c150d111d1Ebd4a58C6bD4Cc4671A"; //staking on BSC MAINNET
 
-let nftAddress = "0x5ecafbd2c3f5f0a388fab041cce164baf484d16a"; // NFT on CMP MAINNET
+let nftAddress = "0x84d8adcf6c9a001b0d001cfbd2c6aef4a5dfbb13"; // NFT on CMP MAINNET
 let tokenAddress = "0xB3890C342B38417fE3ea507D3004353b1A8c1b28"; //token on BSC MAINNET
 let lottoAddress = "0x48AA7D117e7F79d9a4Ea30111c666630CBFDc403"; //lotto on BSC MAINNET
 let nftLottoAddress = "0xc51862a64668921097da3C4a7C64bAeec08C7bc7"; //lotto on CMP
