@@ -23,6 +23,12 @@ const Navbar = (props) => {
       >
         <img src={logo} alt="logo" className={classes.logo} />
         <div className={classes.links}>
+        <NavLink
+          to="/Home"
+          className={(navData) => (navData.isActive ? classes.active : "")}
+        >
+          Home
+        </NavLink>
           <NavLink
             to="/"
             className={(navData) => (navData.isActive ? classes.active : "")}

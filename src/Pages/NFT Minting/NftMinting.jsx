@@ -56,7 +56,7 @@ const NftMinting = (props) => {
               <p style={{ color: theme.palette.secondary.main }}>
                 {nft.minted}
               </p>
-              <p style={{ color: theme.palette.text.secondary }}>&nbsp;/ 888</p>
+              <p style={{ color: theme.palette.text.secondary }}>&nbsp;/ 1,000</p>
             </div>
           </div>
           <div className={classes.counterContainer}>

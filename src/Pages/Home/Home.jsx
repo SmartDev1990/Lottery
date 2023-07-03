@@ -9,8 +9,9 @@ import HistoryIcon from "../../Components/UI/Icons/HistoryIcon";
 import SettingsIcon from "../../Components/UI/Icons/SettingsIcon";
 import LeftSide from "../../Components/UI/Sides/LeftSide/LeftSide";
 import RightSide from "../../Components/UI/Sides/RightSide/RightSide";
-import classes from "./Lottery.module.css";
+import classes from "./Home.module.css";
 import { makeStyles } from "@mui/styles";
+import { useNavigate } from "react-router-dom";
 import SwapField from "../../Components/Common/SwapField/SwapField";
 import ArrowDownSwapIcon from "../../Components/UI/Icons/ArrowDownSwapIcon";
 
@@ -95,6 +96,7 @@ const Lottery = (props) => {
   const { width } = useWindowDimensions();
 
   const [isShowSwap, setIsShowSwap] = useState(false);
+  const navigate = useNavigate();
 
   const handleShowSwap = () => {
     setIsShowSwap(!isShowSwap);
@@ -205,6 +207,10 @@ const Lottery = (props) => {
     setPickingWinner(false);
   };
 
+  const onClick = () => {
+    navigate(`/nft_minting`);
+  };
+
   const truncate = (value, numDecimalPlaces) =>
     Math.trunc(value * Math.pow(10, numDecimalPlaces)) /
     Math.pow(10, numDecimalPlaces);
@@ -237,175 +243,43 @@ const Lottery = (props) => {
   }, [isShowSwap]);
 
   return (
+    <div>
+    <div className={classes.headerlogo}>
     <div className={classes.main}>
-      <LeftSide className={classes.left}>
-        <CurrentJackpot
-          cash={truncate(lotto.jackpot, 2)}
-          actionText={"Buy Entry"}
-          onClick={handleShowSwap}
-        />
-        <div className={classes.tickets}>
-          <MainCard className={classes.ticket}>
-            <p>{truncate(acesBalance, 0)}</p>
-            <span>$Panda Balance</span>
-          </MainCard>
-          <MainCard className={classes.ticket}>
-            <p>{lotto.entries}</p>
-            <span>Lottery Entries</span>
-          </MainCard>
-          <MainCard className={classes.ticket}>
-            <p>{userEntries}</p>
-            <span>My Entries</span>
-          </MainCard>
-        </div>
-        <div className={classes.table}>
-          <TabTable items={lotto.addresses} winners={lotto.results} />
-        </div>
-        <div className={classes.table}>
-          <SecondaryCard
-            className={cx(classes.rightCard, classes.showSwapCard)}
-          ></SecondaryCard>
-        </div>
-      </LeftSide>
-
-      <RightSide
-        className={cx(classes.right, isShowSwap ? classes.showSwap : "")}
-      >
-        <SecondaryCard
-          className={cx(
-            classes.rightCard,
-            isShowSwap ? classes.showSwapCard : ""
-          )}
-        >
-          <div className={classes.rightHeader}>
-            <Typography variant="h4" color={"primary"}>
-              Swap Tokens
-            </Typography>
-            <div className={classes.actions}>
-              <IconButton
-                style={{
-                  backgroundColor: theme.palette.background.buttonSecondary,
-                  color: theme.palette.primary.main,
-                  borderRadius: "8px",
-                }}
-              >
-                <SettingsIcon />
-              </IconButton>
-              <IconButton
-                style={{
-                  backgroundColor: theme.palette.background.buttonSecondary,
-                  color: theme.palette.primary.main,
-                  borderRadius: "8px",
-                }}
-              >
-                <HistoryIcon />
-              </IconButton>
-              <IconButton
-                onClick={handleShowSwap}
-                className={classes.showButt}
-                style={{
-                  backgroundColor: theme.palette.background.buttonSecondary,
-                  color: theme.palette.primary.main,
-                  borderRadius: "8px",
-                }}
-              >
-                {!isShowSwap && <ArrowLeftIcon />}
-                {isShowSwap && <CloseIcon color={theme.palette.primary.main} />}
-              </IconButton>
-            </div>
-          </div>
-          <SwapField
-            tokenIcon={tokenIn.img}
-            tokenName={tokenIn.value}
-            leftLabel={"Pay"}
-            available={
-              tokenIn.value === "CMP"
-                ? truncate(bnbBalance, 4)
-                : truncate(acesBalance, 0)
-            }
-            valueText={"MAX"}
-            inputRef={firstInputRef}
-            value={amountIn}
-            onChange={(e) => handleAmountChange(e, "IN")}
-          />
-          <div className={classes.iconContainer}>
-            <Tooltip title="Swap">
-              <IconButton onClick={switchSides}>
-                <ArrowDownSwapIcon color={theme.palette.primary.main} />
-              </IconButton>
-            </Tooltip>
-          </div>
-          <SwapField
-            tokenIcon={tokenOut.img}
-            tokenName={tokenOut.value}
-            leftLabel={"Receive (Estimated)"}
-            available={
-              tokenOut.value === "CMP"
-                ? truncate(bnbBalance, 4)
-                : truncate(acesBalance, 0)
-            }
-            valueText={"MAX"}
-            value={amountOut}
-            onChange={(e) => handleAmountChange(e, "OUT")}
-          />
-          <div className={classes.swapInfo}>
-            <Label text={`1 CMP = ${parseMoney(10)} $PANDA`} />
-            <ArrowsChangeIcon color={theme.palette.primary.main} />
-          </div>
-          <CustomButton
-            onClick={enoughAllowance ? handleSwap : handleApprove}
-            text={enoughAllowance ? "Swap Now" : `Approve ${tokenIn.value}`}
-            // text="Confirm"
-            disabled={isLoading}
-          />
-          <Label
-            className={classes.totalLabel}
-            text="25,000 $PANDA = 1 PANDA Entry"
-          />
-          <Divider
-            style={{
-              border: `1px solid ${theme.palette.background.border}`,
-              width: "100%",
-              marginTop: "24px",
-            }}
-          />
-          <div className={classes.willGet}>
-            <p style={{ color: theme.palette.text.primary }}>You will get:</p>
-            <p style={{ color: theme.palette.text.special }}>
-              {truncate((amountOut / 2500) % 2500, 0)} Entries!
-            </p>
-          </div>
-          <Divider
-            style={{
-              border: `1px solid ${theme.palette.background.border}`,
-              width: "100%",
-              marginTop: "24px",
-            }}
-          />
-          {userAddress === owner.toLowerCase() ||
-          userAddress === admin1.toLowerCase() ||
-          userAddress === admin2.toLowerCase() ? (
-            <div className={classes.pickSection}>
-              <h2>Winner Selection</h2>
-              <h3>
-                {pickingWinner
-                  ? "Choosing a winner..."
-                  : winner === ""
-                  ? "Pick Winner"
-                  : winner}
-              </h3>
-              <CustomButton
-                onClick={handleWinner}
-                text={"Pick"}
-                // text="Confirm"
-                disabled={isLoading}
-              />
-            </div>
-          ) : (
-            ""
-          )}
-        </SecondaryCard>
-      </RightSide>
+    <h1 className={classes.center}> PandaMint </h1>
+    </div>
+    <div className={classes.p}>
+    {/* <p className={classes.p} align-items="justify">The Lottery and NFT Minting Platform Built on Caduceus Network. </p> */}
+    <p className={classes.p}>Win the daily jackpot by minting NFTs or holding $Panda tokens.</p>
+    </div>
+    <div className={classes.button1}>
+    <button
+    variant="h4"
+    className={classes.button}
+    actionText={"Mint Now"}
+    onClick={onClick}
+    >
+    Mint Panda🐼
+    </button>
+    </div>
+    </div>
+    <div>
+    <div className={classes.lottery}>
+    <h1 className={classes.lotteryh1}> NFT Lottery </h1>
+    </div>
+    <div>
+    <p className={classes.lotteryp1}>PandaMint is a lottery and NFT minting platform built especially for the community. every NFT or $Panda token holder has a chance to win daily jackpot rewards at PandaMint.
+The PandaMint platform is built on top of the Caduceus network. Which chain has very good advantages. Very low transaction fees made us choose Caduceus as a network to create a PandaMint platform.</p>
+    </div>
+    <div className={classes.button1}>
+    <button
+    className={classes.button}
+    href="https://pandamint.gitbook.io/pandamint/introduction/pandamint-platform"
+    >
+    WhitePaper📂
+    </button>
+    </div>
+    </div>
     </div>
   );
 };

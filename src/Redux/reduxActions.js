@@ -109,10 +109,10 @@ let BscTestnetProvider = new ethers.providers.JsonRpcProvider(
 // let nftLottoAddress = "0xB9F28B2C4C32C2e38a5F8559Abd4920D8D9Bf3C4"; //lotto on MAINNET
 // let stakingAddress = "0xaebDD6cBd68c150d111d1Ebd4a58C6bD4Cc4671A"; //staking on BSC MAINNET
 
-let nftAddress = "0x84d8adcf6c9a001b0d001cfbd2c6aef4a5dfbb13"; // NFT on CMP MAINNET
+let nftAddress = "0xed723d03642261d8088d5b7b1a4b85b45e82fbda"; // NFT on CMP MAINNET
 let tokenAddress = "0xB3890C342B38417fE3ea507D3004353b1A8c1b28"; //token on BSC MAINNET
 let lottoAddress = "0x48AA7D117e7F79d9a4Ea30111c666630CBFDc403"; //lotto on BSC MAINNET
-let nftLottoAddress = "0xc51862a64668921097da3C4a7C64bAeec08C7bc7"; //lotto on CMP
+let nftLottoAddress = "0x7DA089b71e23763be98D6ba807F81F8D202A156D"; //lotto on CMP
 let stakingAddress = "0xaebDD6cBd68c150d111d1Ebd4a58C6bD4Cc4671A"; //staking on BSC MAINNET
 
 let nftInstance = new ethers.Contract(nftAddress, nftABI, provider);
@@ -129,7 +129,7 @@ let stakingInstance = new ethers.Contract(
   BSCprovider
 );
 let newLottoInstance = new ethers.Contract(
-  "0x5Ef4D88D587223547684aCE554eDB2eD42731ead",
+  "0x763d0536DA25C94327Be4F0D1E4fcF43887Da784",
   lottoTracker,
   BSCprovider
 );
@@ -174,7 +174,7 @@ export const getUserBalances = (userAddress) => {
 
       dispatch(
         updateUserBalances({
-          acesBalance: ethers.utils.formatUnits(balance, 9),
+          acesBalance: ethers.utils.formatUnits(balance, 18),
           bnbBalance: ethers.utils.formatUnits(bnbBalance, 18),
           userEntries: Number(entries),
           userNfts,
@@ -423,7 +423,7 @@ export const getLottoData = () => {
           _id: index,
           winningAddress: el.winner,
           // totalEntries: Number(el.totalEntries),
-          payout: ethers.utils.formatUnits(el.amount, 9),
+          payout: ethers.utils.formatUnits(el.amount, 18),
         });
       });
 
@@ -634,7 +634,7 @@ export const connectWalletConnect = () => {
           97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
         // network: "binance",
-        chainId: 56,
+        chainId: 256256,
         infuraId: null,
       });
 
@@ -706,12 +706,13 @@ export const disconnectWallet = () => {
       if (connectionType === "WALLET_CONNECT") {
         const provider = new WalletConnectProvider({
           rpc: {
+            256256: "https://mainnet.block.caduceus.foundation",
             1: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
             56: "https://bsc-dataseed1.ninicoin.io/",
             4: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
             97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
           },
-          chainId: 4,
+          chainId: 256256,
           infuraId: null,
         });
         await provider.disconnect();

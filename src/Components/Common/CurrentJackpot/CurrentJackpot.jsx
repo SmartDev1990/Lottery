@@ -31,8 +31,8 @@ const CurrentJackpot = (props) => {
                 <CashIcon/>
             </div>
             <div className={classes.mainCardInfo}>
-                <h4>${cash}</h4>
-                <span>Current Jackpot</span>
+                <h4>{cash} CMP</h4>
+                <span>Current Jackpot (daily)</span>
             </div>
             <div className={classes.buyEntryContainer}>
                 <p>{actionText}</p>

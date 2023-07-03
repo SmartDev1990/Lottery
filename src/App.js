@@ -9,6 +9,7 @@ import HttpsRedirect from "react-https-redirect";
 import "./App.css";
 import Navbar from "./Components/Common/Navbar/Navbar";
 import LotteryContainer from "./Pages/Lottery/LotteryContainer.jsx";
+import HomeContainer from "./Pages/Home/HomeContainer.jsx";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NftLotteryContainer from "./Pages/NFT Lottery/NftLotteryContainer";
 import NftMintingContainer from "./Pages/NFT Minting/NftMintingContainer";
@@ -137,6 +138,7 @@ const App = () => {
                 }
               />
               <Route path="nft_lottery" element={<NftLotteryContainer />} />
+              <Route path="Home" element={<HomeContainer />} />
               <Route path="staking" element={<StackingContainer />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>

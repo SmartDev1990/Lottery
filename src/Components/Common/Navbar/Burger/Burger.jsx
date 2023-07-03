@@ -77,10 +77,11 @@ const Burger = (props) => {
                     <CloseIcon color={theme.palette.text.primary}/>
                 </IconButton>
                 <div className={classes.links}>
+                    <NavLink onClick={handleOpen} to="Home" className={(navData) => (navData.isActive ? material.root : '')}>Home</NavLink>
                     <NavLink onClick={handleOpen} to="/" className={(navData) => (navData.isActive ? material.root : '')}>Token Lottery</NavLink>
                     <NavLink onClick={handleOpen} to="/nft_minting" className={(navData) => (navData.isActive ? material.root : '')}>NFT Minting</NavLink>
                     <NavLink onClick={handleOpen} to="/nft_lottery" className={(navData) => (navData.isActive ? material.root : '')}>NFT Lottery</NavLink>
-                    {/* <NavLink onClick={handleOpen} to="/staking" className={(navData) => (navData.isActive ? material.root : '')}>Staking</NavLink> */}
+                    <NavLink onClick={handleOpen} to="/staking" className={(navData) => (navData.isActive ? material.root : '')}>Staking</NavLink>
                 </div>
             </Drawer>
         </div>
