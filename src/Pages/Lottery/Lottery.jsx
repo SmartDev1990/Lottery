@@ -23,7 +23,7 @@ import { cx } from "../../Utils/classnames";
 import CloseIcon from "../../Components/UI/Icons/CloseIcon";
 import ArrowLeftIcon from "../../Components/UI/Icons/ArrowLeftIcon";
 import aces_logo from "../../Assets/Icons/aces_logo.png";
-import cmp_logo from "../../Assets/Icons/cmp_logo.png";
+import CMP_logo from "../../Assets/Icons/cmp_logo.png";
 
 import {
   getTokenBalance,
@@ -49,18 +49,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 const tokens = [
   {
-    value: "CMP",
-    text: "CMP",
-    address: "0x1fcbA3Cb797465F38839F48CA7c9cDA9d9aac28b",
+    value: "BNB",
+    text: "BNB",
+    address: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
     decimals: 18,
-    img: cmp_logo,
+    img: CMP_logo,
     currentValue: "0",
     balance: "0",
   },
   {
-    value: "PANDA",
-    text: "PANDA",
-    address: "0xB3890C342B38417fE3ea507D3004353b1A8c1b28",
+    value: "$PDM",
+    text: "PANDAMINT",
+    address: "0x70487029E3f1d53C9A054e9f8424E9B37aBDBFf7",
     decimals: 18,
     img: aces_logo,
     currentValue: "0",
@@ -123,7 +123,7 @@ const Lottery = (props) => {
   };
 
   const checkTokenAllowance = async (token) => {
-    if (token.value === "CMP") {
+    if (token.value === "BNB") {
       setEnoughAllowance(true);
     } else {
       let allowance = await checkAllowance(userAddress, token.address);
@@ -217,10 +217,10 @@ const Lottery = (props) => {
 
   useEffect(() => {
     if (window.ethereum) {
-      if (chainId !== 0x3e900) {
+      if (chainId !== 0x38) {
         window.ethereum.request({
           method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x3e900" }],
+          params: [{ chainId: "0x38" }],
         });
       }
     }
@@ -241,13 +241,13 @@ const Lottery = (props) => {
       <LeftSide className={classes.left}>
         <CurrentJackpot
           cash={truncate(lotto.jackpot, 2)}
-          actionText={"Buy Entry"}
+          actionText={"Get Tickets"}
           onClick={handleShowSwap}
         />
         <div className={classes.tickets}>
           <MainCard className={classes.ticket}>
             <p>{truncate(acesBalance, 0)}</p>
-            <span>$Panda Balance</span>
+            <span>$PDM Balance</span>
           </MainCard>
           <MainCard className={classes.ticket}>
             <p>{lotto.entries}</p>
@@ -279,7 +279,7 @@ const Lottery = (props) => {
         >
           <div className={classes.rightHeader}>
             <Typography variant="h4" color={"primary"}>
-              Swap Tokens
+              Buy Token To Get Tickets
             </Typography>
             <div className={classes.actions}>
               <IconButton
@@ -319,7 +319,7 @@ const Lottery = (props) => {
             tokenName={tokenIn.value}
             leftLabel={"Pay"}
             available={
-              tokenIn.value === "CMP"
+              tokenIn.value === "BNB"
                 ? truncate(bnbBalance, 4)
                 : truncate(acesBalance, 0)
             }
@@ -340,7 +340,7 @@ const Lottery = (props) => {
             tokenName={tokenOut.value}
             leftLabel={"Receive (Estimated)"}
             available={
-              tokenOut.value === "CMP"
+              tokenOut.value === "BNB"
                 ? truncate(bnbBalance, 4)
                 : truncate(acesBalance, 0)
             }
@@ -349,7 +349,7 @@ const Lottery = (props) => {
             onChange={(e) => handleAmountChange(e, "OUT")}
           />
           <div className={classes.swapInfo}>
-            <Label text={`1 CMP = ${parseMoney(10)} $PANDA`} />
+            <Label text={`1 BNB = ${parseMoney(0)} $PDM`} />
             <ArrowsChangeIcon color={theme.palette.primary.main} />
           </div>
           <CustomButton
@@ -360,7 +360,7 @@ const Lottery = (props) => {
           />
           <Label
             className={classes.totalLabel}
-            text="25,000 $PANDA = 1 PANDA Entry"
+            text="10,000 $PDM = 1 Lottery Entry"
           />
           <Divider
             style={{

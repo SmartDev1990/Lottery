@@ -33,13 +33,13 @@ const Stacking = (props) => {
   const [currentUnstakePercent, setCurrentUnstakePercent] = useState(0);
   const [stake, setStake] = useState({
     icon: aces_logo,
-    name: "$PANDA",
+    name: "$PDM",
     available: 500,
     value: "",
   });
   const [unstake, setUnstake] = useState({
     icon: aces_logo,
-    name: "$PANDA",
+    name: "$PDM",
     available: 500,
     value: "",
   });
@@ -105,10 +105,10 @@ const Stacking = (props) => {
 
   useEffect(() => {
     if (window.ethereum) {
-      if (chainId !== 256256) {
+      if (chainId !== 5000) {
         window.ethereum.request({
           method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x3e900" }],
+          params: [{ chainId: "0x38" }],
         });
       }
     }
@@ -162,14 +162,14 @@ const Stacking = (props) => {
                     </Tooltip>
                   </div>
                   <p style={{ color: theme.palette.text.primary }}>
-                    {userStaking[currentIndex].balance} $PANDA
+                    {userStaking[currentIndex].balance} $PDM
                   </p>
                 </div>
                 <div className={classes.field}>
                   <Label text="Claimable Rewards" />
                   <div className={classes.reward}>
                     <p style={{ color: theme.palette.text.special }}>
-                      {userStaking[currentIndex].earnings} $PANDA
+                      {userStaking[currentIndex].earnings} $PDM
                     </p>
                     {/* <p style={{ color: theme.palette.text.primary }}>
                       &nbsp;- 0.58$
@@ -277,7 +277,7 @@ const Stacking = (props) => {
                       alt="token"
                       className={classes.miniTableTokenIcon}
                     />
-                    <p>$PANDA</p>
+                    <p>$PDM</p>
                   </div> */}
                   {/* <div>
                     <p>{staking[currentIndex].daily_back}%</p>

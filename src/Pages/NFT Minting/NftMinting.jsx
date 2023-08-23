@@ -30,10 +30,10 @@ const NftMinting = (props) => {
 
   useEffect(() => {
     if (window.ethereum) {
-      if (chainId !== 256256) {
+      if (chainId !== 5000) {
         window.ethereum.request({
           method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x3e900" }],
+          params: [{ chainId: "0x38" }],
         });
       }
     }
@@ -50,17 +50,17 @@ const NftMinting = (props) => {
         <SecondaryCard className={classes.rightCard}>
           <div className={classes.rightHeader}>
             <Typography variant="h4" color={"primary"}>
-              NFT Minting
+              Available Tickets
             </Typography>
             <div className={classes.limit}>
               <p style={{ color: theme.palette.secondary.main }}>
                 {nft.minted}
               </p>
-              <p style={{ color: theme.palette.text.secondary }}>&nbsp;/ 1,000</p>
+              <p style={{ color: theme.palette.text.secondary }}>&nbsp;/ 20,000</p>
             </div>
           </div>
           <div className={classes.counterContainer}>
-            <Label text="QTY" />
+            <Label text="Quantity" />
             <div
               className={classes.counter}
               style={{
@@ -86,20 +86,20 @@ const NftMinting = (props) => {
                   color: theme.palette.primary.main,
                 }}
                 onClick={() => handleLimit("plus")}
-                disabled={limit + 1 > 20}
+                disabled={limit + 1 > 100}
               >
                 +
               </IconButton>
             </div>
           </div>
-          <Label text="Amount Max 10 per transaction" />
+          <Label text="Amount Max 100 per transaction" />
           <div
             className={classes.priceBlock}
             style={{ backgroundColor: theme.palette.background.thirdBg }}
           >
             <div className={classes.stage}>
               <p style={{ color: theme.palette.text.primary }}>
-                {limit} x {nft.price} CMP
+                {limit} x {nft.price} BNB
               </p>
               <Label text="Excluding gas fee" />
             </div>
@@ -111,7 +111,7 @@ const NftMinting = (props) => {
               }}
             />
             <div className={classes.stage}>
-              <Typography variant="h4">{nft.price * limit} CMP</Typography>
+              <Typography variant="h4">{nft.price * limit} BNB</Typography>
               <Label text="Price" />
             </div>
           </div>

@@ -162,10 +162,10 @@ const NftLottery = (props) => {
 
   useEffect(() => {
     if (window.ethereum) {
-      if (chainId !== 256256) {
+      if (chainId !== 5000) {
         window.ethereum.request({
           method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x3e900" }],
+          params: [{ chainId: "0x38" }],
         });
       }
     }

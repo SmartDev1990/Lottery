@@ -1,0 +1,237 @@
+.containerroadmap {
+  min-height: auto;
+  box-shadow: 2px 2px 2px 2px rgb(76,67,241);
+  color: transparent;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.feature-content2 {
+font-family: Bahnschrift;
+font-size: 20px;
+color: white;
+font-style: bold;
+letter-spacing: 0em;
+text-align: center;
+margin-bottom: 50px;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: #006E51;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.container1 {
+  padding: 15px;
+  position: relative;
+  background: inherit;
+  width: 50%;
+}
+
+.container1.left {
+  left: 0;
+}
+
+.container1.right {
+  left: 45%;
+}
+
+.container1::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: calc(50% - 8px);
+  right: -8px;
+  background: #ffffff;
+  border: 2px solid #006E51;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.container1.right::after {
+  left: -8px;
+}
+
+.container1::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  top: calc(50% - 1px);
+  right: 8px;
+  background: #006E51;
+  z-index: 1;
+}
+
+.container1.right::before {
+  left: 8px;
+}
+
+.container1 .date {
+  position: absolute;
+  display: inline-block;
+  top: calc(50% - 8px);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Bahnschrift;
+  color: blue;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.container1.left .date {
+  right: -100px;
+}
+
+.container1.right .date {
+  left: -100px;
+}
+
+.container1 .icon {
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 9px 0;
+  top: calc(50% - 20px);
+  background: #F6D155;
+  border: 2px solid #006E51;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: #006E51;
+  z-index: 1;
+}
+
+.container1.left .icon {
+  right: 56px;
+}
+
+.container1.right .icon {
+  left: 56px;
+}
+
+.container1 .content {
+  padding: 30px;
+  background: linear-gradient(184deg, rgba(85,229,246,0.2583158263305322) 48%, rgba(0,251,9,0.16867997198879547) 100%);
+  position: relative;
+  box-shadow: 2px 2px 6px 6px blue;
+  border-radius: 100px;
+  font-family: monospace;
+}
+
+.container1.right .content {
+  padding: 30px 30px 30px 90px;
+  border-radius: 100px 100px 100px 100px;
+}
+
+.container1 .content h2 {
+  margin: 0 0 10px 0;
+  font-family: Bahnschrift;
+  font-size: 18px;
+  font-weight: normal;
+  color: #00fb09;
+}
+
+.container1 .content p {
+  margin: 0;
+  font-family: Bahnschrift;
+  font-size: 20px;
+  line-height: 22px;
+  color: white;
+}
+
+@media (max-width: 767.98px), (max-width: 100px), (max-width: 300px) {
+  .timeline::after {
+    left: 20px;
+  }
+
+  .container1 {
+    width: 100%;
+    padding-left: 120px;
+    padding-right: 30px;
+  }
+
+  .container1.right {
+    left: 0%;
+  }
+
+  .container1.left::after,
+  .container1.right::after {
+    left: 20px;
+  }
+
+  .container1.left::before,
+  .container1.right::before {
+    left: 20px;
+    border-color: transparent #006E51 transparent transparent;
+  }
+
+  .container1.left .date,
+  .container1.right .date {
+    right: auto;
+    left: 15px;
+  }
+
+  .container1.left .icon,
+  .container1.right .icon {
+    right: auto;
+    left: 146px;
+  }
+
+  .container1.left .content,
+  .container1.right .content {
+    padding: 30px 30px 30px 90px;
+    border-radius: 100px 100px 100px 100px;
+  }
+}
+
+@media (max-width: 100px), (max-width: 300px), (max-width: 400px) {
+  .timeline::after {
+    left: 10px;
+  }
+
+  .container1 {
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 5px;
+  }
+
+  .container1.right {
+    left: 0%;
+  }
+  .container1.left .icon,
+  .container1.right .icon {
+    right: auto;
+    left: 40px;
+  }
+
+  .container1.left .content,
+  .container1.right .content {
+    padding: 30px;
+    border-radius: 100px 0 0 100px;
+  }
+}

@@ -110,38 +110,41 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <HttpsRedirect>
-          <div
-            className="main"
-            style={{ backgroundColor: theme.palette.background.main }}
-          >
-            <Navbar
-              acesPrice={acesPrice}
-              chainId={chainId}
-              userAddress={userAddress}
-              handleWallet={handleShowWallet}
-            />
-            {isShowConnectWallet && (
-              <ConnectWallet
-                dispatch={dispatch}
-                connectMetamask={connectMetamask}
-                connectWalletConnect={connectWalletConnect}
-                onClose={handleShowWallet}
+          <div className="app">
+            <div
+              className="main"
+              style={{ backgroundColor: theme.palette.background.main }}
+            >
+              <Navbar
+                acesPrice={acesPrice}
+                chainId={chainId}
+                userAddress={userAddress}
+                handleWallet={handleShowWallet}
               />
-            )}
-            <div className="content">
-            <Routes>
-              <Route path="/" element={<LotteryContainer />} />
-              <Route
-                path="nft_minting"
-                element={
-                  <NftMintingContainer handleWallet={handleShowWallet} />
-                }
-              />
-              <Route path="nft_lottery" element={<NftLotteryContainer />} />
-              <Route path="Home" element={<HomeContainer />} />
-              <Route path="staking" element={<StackingContainer />} />
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
+              {isShowConnectWallet && (
+                <ConnectWallet
+                  dispatch={dispatch}
+                  connectMetamask={connectMetamask}
+                  connectWalletConnect={connectWalletConnect}
+                  onClose={handleShowWallet}
+                />
+              )}
+              <div className="content">
+                <Routes>
+                  <Route path="/" element={<HomeContainer />} />
+                  <Route
+                    path="nft_minting"
+                    element={
+                      <NftMintingContainer handleWallet={handleShowWallet} />
+                    }
+                  />
+                  <Route path="nft_lottery" element={<NftLotteryContainer />} />
+                  <Route path="Lottery" element={<LotteryContainer />} />
+                  <Route path="staking" element={<StackingContainer />} />
+                  <Route path="docs" element={<Navigate to="https://mirror.xyz/0xc2A27043469197Baa71601ff067504e1D4ED4E5a/lIfNAnbfoa-7Wi2P8-EFRuSLJAs7m4DG7QwkN5dPPCM" />} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+              </div>
             </div>
           </div>
         </HttpsRedirect>

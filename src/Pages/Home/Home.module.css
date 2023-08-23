@@ -18,7 +18,7 @@
   text-align: center;
   font-size: 40px;
   color: white;
-  font-family: monospace;
+  font-family: Bahnschrift;
 }
 
 .lotteryp1 {
@@ -26,7 +26,7 @@
   text-align: center;
   font-size: 20px;
   color: white;
-  font-family: monospace;
+  font-family: Bahnschrift;
 }
 
 .token {
@@ -43,7 +43,7 @@
   text-align: left;
   font-size: 40px;
   color: white;
-  font-family: monospace;
+  font-family: Bahnschrift;
 }
 
 .tokenp1 {
@@ -51,7 +51,7 @@
   text-align: left;
   font-size: 20px;
   color: white;
-  font-family: monospace;
+  font-family: Bahnschrift;
 }
 
 .headerlogo {
@@ -64,18 +64,30 @@
   padding: 30px 0px 150px 0px;
   margin: 10px;
 }
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
 .center {
   padding-top: 100px;
   text-align: center;
   gap: 12px;
   font-size: 60px;
-  font-family: monospace;
+  font-family: Bahnschrift;
 }
 
 .button1 {
   padding: 10px;
   text-align: center;
+}
+
+.button2 {
+  padding: 10px 0px 0px 0px;
+  text-align: left;
 }
 
 .button {
@@ -87,7 +99,7 @@
   background: #ff486e;
   text-decoration-style: double;
   margin: 10px;
-  font-family: monospace;
+  font-family: Bahnschrift;
 }
 
 .p {
@@ -95,7 +107,7 @@
   text-align: center;
   font-size: 22px;
   color: white;
-  font-family: monospace;
+  font-family: Bahnschrift;
 }
 
 .pickSection {
@@ -107,13 +119,13 @@
 }
 
 .wrapper {
-    margin-top: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 21px;
-    padding-bottom: 24px;
-    max-height: calc(100vh - 195px);
-    overflow-y: scroll;
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 21px;
+  padding-bottom: 24px;
+  max-height: calc(100vh - 195px);
+  overflow-y: scroll;
 }
 
 .pickSection button {
@@ -207,7 +219,41 @@
 .showButt {
   display: none !important;
 }
-
+.footer-wrapper {
+  margin: 6rem 0rem;
+  display: flex;
+  margin-top: 10rem;
+  background: #5b5a5a;
+}
+.footer-logo-container {
+  max-width: 110px;
+  align-items: left;
+}
+.footer-icons {
+  margin-top: 2.5rem;
+  align-items: left;
+}
+.footer-icons svg {
+  font-size: 1.5rem;
+  margin-right: 1.25rem;
+  color: #585858;
+}
+.footer-section-two {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.footer-section-columns {
+  display: flex;
+  flex-direction: column;
+  min-width: 190px;
+}
+.footer-section-columns span {
+  margin: 0.25rem 0rem;
+  font-weight: 600;
+  color: #4c4c4c;
+  cursor: pointer;
+}
 @media screen and (max-width: 1366px) {
   .left {
     padding-top: 24px;
@@ -241,6 +287,13 @@
   .p {
     align-items: justify;
   }
+  .footer-section-two {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+  .footer-section-columns {
+    margin: 1rem 0rem;
+  }
 }
 
 @media screen and (max-width: 568px) {
@@ -263,7 +316,15 @@
     text-align: center;
     font-size: 40px;
     color: white;
-    font-family: monospace;
+    font-family: Bahnschrift;
+  }
+
+  .section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .lotteryp1 {
@@ -271,8 +332,9 @@
     text-align: center;
     font-size: 20px;
     color: white;
-    font-family: monospace;
+    font-family: Bahnschrift;
   }
+
   .p {
     align-items: justify;
   }
@@ -319,6 +381,14 @@
   .showSwapCard {
     margin-top: auto;
   }
+  .footer-wrapper {
+    flex-direction: column;
+    background: #5b5a5a;
+  }
+  .footer-section-two {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
 }
 
 @media screen and (max-width: 468px) {
@@ -347,7 +417,7 @@
     text-align: center;
     font-size: 40px;
     color: white;
-    font-family: monospace;
+    font-family: Bahnschrift;
   }
 
   .lotteryp1 {
@@ -355,8 +425,11 @@
     text-align: center;
     font-size: 20px;
     color: white;
-    font-family: monospace;
+    font-family: Bahnschrift;
   }
+}
+.footer-wrapper {
+  flex-direction: column;
 }
 
 @media screen and (max-width: 360px) {
@@ -379,7 +452,7 @@
     text-align: center;
     font-size: 40px;
     color: white;
-    font-family: monospace;
+    font-family: Bahnschrift;
   }
 
   .lotteryp1 {
@@ -387,7 +460,7 @@
     text-align: center;
     font-size: 20px;
     color: white;
-    font-family: monospace;
+    font-family: Bahnschrift;
   }
   .ticket p {
     font-size: 18px;

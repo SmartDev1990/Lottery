@@ -1,0 +1,85 @@
+/* Reset some default styles for browsers */
+body, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the feature section using CSS Grid */
+.feature-section {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+    gap: 20px; /* Gap between columns */
+    padding: 50px;
+}
+
+/* Style for individual features */
+.feature {
+    text-align: center;
+}
+
+.herof {
+    display: flex;
+    flex-direction: column; /* Stack columns on small screens */
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Adjust spacing */
+}
+
+.box {
+  margin: 20px;
+  border-radius: 15px;
+  background: linear-gradient(90deg, rgba(223,142,255,0.07064075630252098) 0%, rgba(80,178,255,0.1294642857142857) 52%, rgba(42,252,225,0.09585084033613445) 100%);
+  align-items: center;
+  padding: 20px;
+  box-shadow: 6px 3px 4px 2px #2afce1;
+}
+
+/* Style for feature titles */
+.titleheader {
+    font-size: 1.5em;
+    margin: 10px;
+    text-align: center;
+    font-family: Bahnschrift;
+}
+
+.titlefeatures {
+    font-size: 1.5em;
+    margin: 10px;
+    text-align: center;
+    font-family: Bahnschrift;
+}
+
+/* Style for feature content */
+.sub {
+    font-size: 1em;
+    text-align: center;
+    font-family: Bahnschrift;
+}
+
+.image {
+  width: 200px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fcta-button {
+    display: inline-block;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .feature-section {
+        grid-template-columns: 1fr; /* Single column layout for smaller screens */
+        text-align: center;
+    }
+}

@@ -8,14 +8,14 @@ import BUSD_icon from '../../Assets/Icons/BUSD.svg'
 const HomeContainer = (props) => {
     const [pay, setPay] = useState({
         icon: BUSD_icon,
-        name: "CMP",
+        name: "$BNB",
         available: 500,
         value: ""
     })
 
     const [receive, setReceive] = useState({
         icon: aces_logo,
-        name: "$PANDA",
+        name: "$PDM",
         available: 1567876,
         value: ""
     })

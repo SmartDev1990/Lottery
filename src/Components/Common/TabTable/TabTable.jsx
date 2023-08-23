@@ -76,7 +76,7 @@ const TabTable = (props) => {
       value: "#",
     },
     {
-      value: "CMP Address",
+      value: "BNB Address",
     },
     {
       value: "Entries",

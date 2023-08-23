@@ -137,7 +137,7 @@ const StakeTable = (props) => {
               {/* <TableCell>{el.APY}%</TableCell> */}
               <TableCell>
                 {userItems[index].earnings ? userItems[index].earnings : "-"}{" "}
-                $PANDA
+                $PDM
               </TableCell>
               <TableCell align="right">
                 <CustomIconButton

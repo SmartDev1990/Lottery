@@ -13,7 +13,7 @@ const NftMintingContainer = ({ handleWallet }) => {
 
   const handleLimit = (type) => {
     if (type === "plus") {
-      if (limit + 1 <= 10) {
+      if (limit + 1 <= 100) {
         setLimit(limit + 1);
       }
     } else {

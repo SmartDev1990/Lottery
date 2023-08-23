@@ -1,0 +1,97 @@
+/* Reset some default styles for browsers */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the hero section */
+.about {
+    display: flex;
+    flex-direction: column; /* Stack columns on small screens */
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Adjust spacing */
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/* Style for the left column */
+.left-column, .right-column {
+    flex: 1;
+    text-align: center; /* Center align on small screens */
+    padding: 20px;
+}
+
+/* Style for the hero title */
+h1 {
+    font-size: 2em;
+    font-family: Bahnschrift;
+    margin-bottom: 10px;
+    color: White;
+}
+
+p {
+    font-size: 1em;
+    font-family: Bahnschrift;
+    margin-bottom: 10px;
+    color: White;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Style for the hero image */
+img {
+    max-width: 80%;
+    height: auto;
+    align-items: center;
+}
+
+/*
+.button {
+  border-radius: 20px;
+  background: black;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) { /* Tablet and larger screens */
+    .about {
+        flex-direction: row;
+        padding: 50px; /* Restore padding */
+    }
+    .left-column, .right-column {
+        text-align: initial;
+    }
+    .left-column {
+        padding-right: 20px;
+    }
+    .right-column {
+        padding-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 400px) { /* Tablet and larger screens */
+    .about {
+        margin: 0px;
+    }
+    .left-column, .right-column {
+        text-align: initial;
+    }
+    .left-column {
+        padding-right: 20px;
+    }
+    .right-column {
+        padding-left: 20px;
+    }
+}

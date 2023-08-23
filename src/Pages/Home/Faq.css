@@ -1,0 +1,83 @@
+
+.accordion {
+  width: 100%;
+}
+.panel {
+  background: #FFF;
+  display: flex;
+  font-family: Bahnschrift;
+  font-style: italic;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 25px;
+  max-height: 280px;
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+.panel__label {
+  position: relative;
+  font-family: Bahnschrift;
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: color 0.2s linear;
+  cursor: pointer;
+  color: #000;
+}
+.panel__label:focus {
+  outline: none;
+}
+.panel__label:after,
+.panel__label:before {
+  content: '';
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  width: 22px;
+  height: 2px;
+  margin-top: -2px;
+  background-color: #fff;
+}
+.panel__label:before {
+  transform: rotate(-90deg);
+  transition: transform 0.35s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.panel[aria-expanded='true'] .panel__content {
+  opacity: 1;
+}
+.panel[aria-expanded='true'] .panel__label {
+  color: blue;
+}
+.panel[aria-expanded='true'] .panel__label:before {
+  transform: rotate(0deg);
+}
+.panel__inner {
+  height: 100%;
+  overflow: hidden;
+  will-change: height;
+  transition: height 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  color: #000;
+}
+.panel__content {
+  margin: 8px 0;
+  font-family: Bahnschrift;
+  font-size: 1rem;
+  color: #000;
+  opacity: 0;
+  transition: opacity 0.3s linear 0.18s;
+  text-align: center;
+}
+.panel:not(:last-child) {
+  margin-bottom: 3px;
+}

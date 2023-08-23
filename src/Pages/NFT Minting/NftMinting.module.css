@@ -12,7 +12,7 @@
 }
 .imgContainer {
     width: 100%;
-    padding: 40px;
+    padding: 0 0 0 80px;
     padding-top: 0;
     box-sizing: border-box;
     height: calc(100vh - 136px);
@@ -126,6 +126,9 @@
 @media screen and (max-width: 568px) {
     .left {
         padding: 15px
+    }
+    .imgContainer {
+      width: 125%;
     }
     .counter input {
         width: 50px;

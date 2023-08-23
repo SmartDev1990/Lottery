@@ -3,14 +3,14 @@ import { tokenABI, routerABI } from "../abis/abis";
 
 let provider = new ethers.providers.JsonRpcProvider(
   // "https://data-seed-prebsc-2-s2.binance.org:8545/"
-  "https://mainnet.block.caduceus.foundation"
+  "https://rpc.BNB.xyz"
 );
 
 // let tokenAddress = "0xBa847d96e2d702A9DCc016Dd524E74170B229b1A";
 // let routerAddress = "0x56314e2Ed3caB059639522fC7e76a71231b4d42d";
 let routerAddress = "0xb0240848456412D1a33792DF4A1178053b9aecAa"; // MAINNET
 // let BNB = "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd";
-let CMP = "0x1fcbA3Cb797465F38839F48CA7c9cDA9d9aac28b"; // MAINNET
+let BNB = "0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8"; // MAINNET
 
 let routerInterface = new ethers.Contract(routerAddress, routerABI, provider);
 
@@ -19,7 +19,7 @@ export const getTokenBalance = async (type, address, userAddress) => {
     let balance;
 
     switch (type) {
-      case "CMP":
+      case "BNB":
         balance = await provider.getBalance(userAddress);
 
         return ethers.utils.formatEther(balance);
@@ -105,7 +105,7 @@ export const swap = async (
     );
     let deadline = (Date.now() / 1000 + 1000 * 60 * 2).toFixed(0).toString();
 
-    if (path[0] === CMP) {
+    if (path[0] === BNB) {
       tx = await newInstance.swapExactETHForTokensSupportingFeeOnTransferTokens(
         amountOutMin,
         path,
@@ -113,7 +113,7 @@ export const swap = async (
         deadline,
         { value: amountIn }
       );
-    } else if (path[1] === CMP) {
+    } else if (path[1] === BNB) {
       tx = await newInstance.swapExactTokensForETHSupportingFeeOnTransferTokens(
         amountIn,
         amountOutMin,

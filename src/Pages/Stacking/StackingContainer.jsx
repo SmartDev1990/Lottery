@@ -11,9 +11,9 @@ const StackingContainer = (props) => {
         {
             period: "30 Days",
             daily_back: "2%",
-            earnings: "400 K $PANDA",
+            earnings: "400 K $PDM",
             amount_staked: "132,568,333",
-            rewards: "132.3142 $PANDA",
+            rewards: "132.3142 $PDM",
             liquidity: "$ 56 M",
         },
         {
@@ -21,14 +21,14 @@ const StackingContainer = (props) => {
             daily_back: "3%",
             earnings: 0,
             amount_staked: "132,568,333",
-            rewards: "132.3142 $PANDA",
+            rewards: "132.3142 $PDM",
             liquidity: "$ 56 M",
         },
         {
             period: "90 Days",
             daily_back: "5%",
             amount_staked: "132,568,333",
-            rewards: "132.3142 $PANDA",
+            rewards: "132.3142 $PDM",
             liquidity: "$ 56 M",
         },
     ]
@@ -37,14 +37,14 @@ const StackingContainer = (props) => {
 
     const [stake, setStake] = useState({
         icon: aces_logo,
-        name: "$PANDA",
+        name: "$PDM",
         available: 500,
         value: ""
     })
 
     const [unstake, setUnstake] = useState({
         icon: aces_logo,
-        name: "$PANDA",
+        name: "$PDM",
         available: 500,
         value: ""
     })

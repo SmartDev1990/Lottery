@@ -21,43 +21,43 @@ const Navbar = (props) => {
           backgroundColor: theme.palette.background.main,
         }}
       >
-        <img src={logo} alt="logo" className={classes.logo} />
+        <img className={classes.logo} src={logo} />
         <div className={classes.links}>
-        <NavLink
-          to="/Home"
-          className={(navData) => (navData.isActive ? classes.active : "")}
-        >
-          Home
-        </NavLink>
           <NavLink
             to="/"
             className={(navData) => (navData.isActive ? classes.active : "")}
           >
-            Token Lottery
+            Home
           </NavLink>
           <NavLink
             to="/nft_minting"
             className={(navData) => (navData.isActive ? classes.active : "")}
           >
-            NFT Minting
+            Minting
           </NavLink>
           <NavLink
             to="/nft_lottery"
             className={(navData) => (navData.isActive ? classes.active : "")}
           >
-            NFT Lottery
+            LotteryNFT
           </NavLink>
-          {/*  <NavLink
-            to="/staking"
+          <NavLink
+            to="/Lottery"
             className={(navData) => (navData.isActive ? classes.active : "")}
           >
-            Staking (Coming Soon)
-          </NavLink> */}
+            Lottery
+          </NavLink>
           <NavLink
             to="/staking"
             className={(navData) => (navData.isActive ? classes.active : "")}
           >
             Staking
+          </NavLink>
+          <NavLink
+            to="https://cmp.pandamint.xyz"
+            className={(navData) => (navData.isActive ? classes.active : "")}
+          >
+            CMPChain
           </NavLink>
         </div>
         <div className={classes.burger}>
@@ -65,13 +65,13 @@ const Navbar = (props) => {
         </div>
       </div>
       <div className={classes.right}>
-        <IconButton className={classes.themeBut}>
+        {/* <IconButton className={classes.themeBut}>
           <SunIcon />
-        </IconButton>
-        {/* <div className={classes.curs}>
-          <p>1 $ACE = </p>
-          <p>&nbsp;${acesPrice}</p>
-        </div> */}
+        </IconButton> */}
+        <div className={classes.curs}>
+          {/*<p>1 $PDM = $NAN</p>
+           <p>&nbsp;${acesPrice}</p> */}
+        </div>
         <div className={classes.walletButContainer}>
           <div className={classes.bsc}>
             <div className={classes.statusCircle} />
@@ -80,8 +80,8 @@ const Navbar = (props) => {
                 ? "ETH"
                 : chainId === 4
                 ? "ETH Rinkeby"
-                : chainId === 256256
-                ? "CMP"
+                : chainId === 5000
+                ? "MANTLE"
                 : chainId === 56
                 ? "BSC"
                 : chainId === 97

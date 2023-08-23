@@ -42,7 +42,7 @@ const ConnectWallet = (props) => {
               border: `1px solid ${theme.palette.text.primary}`,
             }}
           >
-            <img src={metamask} alt="metamask" />
+            <img className={classes.logo1} src={metamask} alt="metamask" />
             <p>Metamask</p>
           </Button>
           <Button
@@ -52,7 +52,7 @@ const ConnectWallet = (props) => {
               border: `1px solid ${theme.palette.text.primary}`,
             }}
           >
-            <img src={wallet} alt="metamask" />
+            <img className={classes.logo1} src={wallet} alt="metamask" />
             <p>WalletConnect</p>
           </Button>
         </div>
