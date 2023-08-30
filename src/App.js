@@ -26,6 +26,7 @@ import {
   getLottoData,
   getNftLottoData,
 } from "./Redux/reduxActions";
+import UAuth from '@uauth/js'
 
 const theme = createTheme({
   palette: {
@@ -56,6 +57,11 @@ const theme = createTheme({
 const App = () => {
   const [isShowConnectWallet, setIsShowConnectWallet] = useState(false);
   const dispatch = useDispatch();
+
+  const [uDauth, setUDauth] = useState()
+  const [udUser, setUdUser] = useState()
+
+
   let { userAddress, connectionType, chainId, acesPrice } = useSelector(
     (state) => state.common
   );
@@ -106,6 +112,36 @@ const App = () => {
     dispatch(getNftLottoData());
   }, []);
 
+  useEffect(() => {
+    console.log(window.location.origin)
+    const uDauth = new UAuth({
+      clientID: "88d22787-3245-4b63-8cf2-64a5e4ad169d",
+      redirectUri: `${window.location.origin}`,
+      scope: "openid wallet messaging:notifications:optional"
+    }
+    )
+    setUDauth(uDauth)
+  }, [])
+
+  const connectUD = async () => {
+    console.log(window.location.origin)
+    console.log(uDauth)
+    if (udUser == undefined && uDauth != undefined) {
+      try {
+        await uDauth.loginWithPopup()
+        window.location.reload()
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    if (udUser != undefined && uDauth != undefined) {
+      await uDauth.logout()
+      window.location.reload()
+    }
+  }
+
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
@@ -126,6 +162,7 @@ const App = () => {
                   dispatch={dispatch}
                   connectMetamask={connectMetamask}
                   connectWalletConnect={connectWalletConnect}
+                  connectUD={connectUD}
                   onClose={handleShowWallet}
                 />
               )}

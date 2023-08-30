@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Navbar.module.css";
 import { Button, IconButton } from "@mui/material";
 
@@ -7,11 +7,43 @@ import SunIcon from "../../UI/Icons/SunIcon";
 import { NavLink } from "react-router-dom";
 import Burger from "./Burger/Burger";
 import { useTheme } from "@emotion/react";
+import UAuth from '@uauth/js'
 
 const Navbar = (props) => {
   const { handleWallet, userAddress, chainId, acesPrice } = props;
 
   const theme = useTheme();
+
+  const [uDauth, setUDauth] = useState()
+  const [udUser, setUdUser] = useState()
+
+  useEffect(() => {
+    const uDauth = new UAuth({
+      clientID: "88d22787-3245-4b63-8cf2-64a5e4ad169d",
+      redirectUri: `${window.location.origin}`,
+      scope: "openid wallet messaging:notifications:optional"
+    }
+    )
+    setUDauth(uDauth)
+  }, [])
+
+
+  useEffect(() => {
+    if (uDauth != undefined && udUser != undefined) {
+      try {
+        uDauth.user()
+          .then((user) => {
+            setUdUser(user)
+          })
+          .catch((e) => {
+            console.log(e)
+          })
+      } catch (err) {
+        // console.log(err)
+      }
+    }
+  }, [uDauth, udUser])
+
 
   return (
     <div className={classes.main}>
@@ -79,18 +111,18 @@ const Navbar = (props) => {
               {chainId === 1
                 ? "ETH"
                 : chainId === 4
-                ? "ETH Rinkeby"
-                : chainId === 5000
-                ? "MANTLE"
-                : chainId === 56
-                ? "BSC"
-                : chainId === 97
-                ? "BSC Testnet"
-                : "Unknown"}
+                  ? "ETH Rinkeby"
+                  : chainId === 5000
+                    ? "MANTLE"
+                    : chainId === 56
+                      ? "BSC"
+                      : chainId === 97
+                        ? "BSC Testnet"
+                        : "Unknown"}
             </p>
           </div>
           <Button onClick={handleWallet} className={classes.walletBut}>
-            {userAddress
+            {udUser ? udUser.sub : userAddress
               ? `${userAddress.slice(0, 6)}...${userAddress.slice(-6)}`
               : "Connect Wallet"}
           </Button>

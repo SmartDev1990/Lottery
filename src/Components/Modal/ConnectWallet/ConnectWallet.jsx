@@ -9,10 +9,11 @@ import CloseIcon from "../../UI/Icons/CloseIcon";
 import { useTheme } from "@emotion/react";
 import CustomButton from "../../UI/Button/CustomButton";
 
-const ConnectWallet = (props) => {
-  const { onClose, connectMetamask, connectWalletConnect, dispatch } = props;
 
+const ConnectWallet = (props) => {
+  const { onClose, connectUD, connectMetamask, connectWalletConnect, dispatch } = props;
   const theme = useTheme();
+
 
   return (
     <Overflow>
@@ -45,6 +46,7 @@ const ConnectWallet = (props) => {
             <img className={classes.logo1} src={metamask} alt="metamask" />
             <p>Metamask</p>
           </Button>
+
           <Button
             className={classes.button}
             onClick={() => dispatch(connectWalletConnect())}
@@ -54,6 +56,17 @@ const ConnectWallet = (props) => {
           >
             <img className={classes.logo1} src={wallet} alt="metamask" />
             <p>WalletConnect</p>
+          </Button>
+
+          <Button
+            className={classes.button}
+            onClick={() => connectUD()}
+            style={{
+              border: `1px solid ${theme.palette.text.primary}`,
+            }}
+          >
+            <img className={classes.logo1} src={wallet} alt="ud" />
+            <p>Unstoppable Domains</p>
           </Button>
         </div>
         {/* <div className={classes.submit}>
